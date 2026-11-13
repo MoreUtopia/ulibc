@@ -1,0 +1,6 @@
+-nostdinc
+-nostdlib
+-ffreestanding
+-fno-stack-protector
+-static
+-Iinclude
