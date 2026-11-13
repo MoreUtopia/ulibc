@@ -1,3 +1,5 @@
+#pragma once
+
 #if defined(__x86_64__)
 
 #define __LIBC_SYSCALL_REG0 "rax"

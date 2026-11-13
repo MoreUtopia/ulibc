@@ -3,9 +3,17 @@
 #include <string.h>
 #include <sys/syscall.h>
 
-void puts(char* what) {
-    __libc_syscall3(5, 1, (uintptr_t)what, strlen(what));
+void write(int fd, char* what, uintptr_t len) {
+    __libc_syscall3(5, fd, (uintptr_t)what, len);
+}
+
+void fputs(int fd, char* what) {
+    write(fd, what, strlen(what));
 
     // puts appends a newline at the end
-    __libc_syscall3(5, 1, (uintptr_t)&"\n", 1);
+    write(fd, "\n", 1);
+}
+
+void puts(char* what) {
+    fputs(1, what);
 }

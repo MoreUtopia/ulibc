@@ -1,8 +1,9 @@
+#pragma once
+
 #include <stdint.h>
 
 #define __LIBC_SYSCALL_FUNC_DECLARE(no, ...) \
     uint64_t __libc_syscall##no (uint64_t syscall_no, ##__VA_ARGS__);
-
 
 __LIBC_SYSCALL_FUNC_DECLARE(0)
 __LIBC_SYSCALL_FUNC_DECLARE(1, uint64_t arg1)
